@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
     if (!user) return res.status(400).json({ error: 'User not found' });
 
     const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(400).json({ error: 'Incorrect password' });
+    if (!match) return res.status(400).json({ error: 'Incorrpassword' });
 
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
       expiresIn: '1d'
