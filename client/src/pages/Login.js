@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import bgImage from "../assets/login_bg.jpg"; // Assuming you have this image
+import { ToastContainer,toast } from "react-toastify";
 
 
 const PRIMARY_BLUE = "#512B81"; // blue-500
@@ -105,7 +106,7 @@ export default function Login() {
         alert(data.error || "Login failed");
       }
     } catch (err) {
-      alert("Error connecting to server");
+      toast.error("Error connecting to server");
       console.error(err);
     }
   };
@@ -280,6 +281,7 @@ export default function Login() {
           </p>
         </form>
       </motion.div>
+      <ToastContainer position="bottom-left" autoClose={4000} />
       
     </div>
   );
